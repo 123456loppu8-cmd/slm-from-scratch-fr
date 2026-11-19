@@ -1,0 +1,15 @@
+# Petit corpus de démonstration en français.
+# Remplacez ou complétez ce fichier avec vos propres textes, en respectant
+# les droits d'auteur et les règles de confidentialité applicables.
+
+Bonjour et bienvenue dans ce petit corpus de démonstration. Un modèle de langage apprend des régularités à partir des textes qui lui sont fournis. Il découpe le texte en tokens, puis apprend à prédire quel token vient ensuite.
+
+Un Transformer utilise l'attention pour mettre en relation les mots d'une séquence. Dans un modèle autorégressif, le masque causal empêche le modèle de consulter les tokens futurs lorsqu'il prédit la suite. Les embeddings représentent les tokens sous forme de vecteurs, tandis que les embeddings de position donnent une information sur leur ordre.
+
+L'entraînement consiste à présenter au modèle des séquences d'entrée et les séquences décalées d'un token. La fonction de perte mesure l'écart entre les prédictions et les tokens attendus. L'optimiseur AdamW ajuste progressivement les paramètres afin de réduire cette perte.
+
+Ce texte est volontairement court et sert uniquement à vérifier le fonctionnement du pipeline. Pour obtenir des générations plus cohérentes, il faut généralement un corpus beaucoup plus grand, de bonne qualité et représentatif du domaine visé. Il est utile de séparer les données d'entraînement et de validation afin de suivre si le modèle généralise au-delà des exemples vus.
+
+L'apprentissage depuis zéro ne télécharge aucun modèle pré-entraîné. Le tokenizer BPE apprend lui aussi son vocabulaire à partir du fichier local. Les paramètres comme la dimension des embeddings, le nombre de couches, le nombre de têtes et la longueur des séquences influencent la taille du modèle et la mémoire nécessaire.
+
+Pour un premier essai, lancez le tokenizer, puis l'entraînement avec un petit nombre d'étapes. Une perte qui diminue indique que le modèle s'adapte aux exemples, mais ne garantit pas à elle seule une bonne qualité de texte. Évaluez les résultats avec des prompts distincts et enrichissez le corpus au besoin.
